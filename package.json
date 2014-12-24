@@ -1,5 +1,5 @@
 {
-  "name": "pui prototyping",
+  "name": "pui-prototyping",
   "version": "0.0.0",
   "description": "Quick spike on prototyping with hapi.js",
   "main": "server.js",
