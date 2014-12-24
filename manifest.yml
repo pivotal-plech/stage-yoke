@@ -1,0 +1,8 @@
+---
+applications:
+- name: pui-node
+  command: node server.js
+  mem: 1G
+  instances: 1
+  host: pui-node
+  domain: cfapps.io
