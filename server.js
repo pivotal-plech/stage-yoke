@@ -19,6 +19,16 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/fonts/{params*}',
+    handler: {
+        directory: {
+            path: 'app/assets/fonts/'
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/pivotal-ui.js',
     handler: function (request, reply) {
         reply.file('app/assets/javascripts/pivotal-ui.js');
