@@ -22,7 +22,7 @@ server.route({
     path: '/fonts/{params*}',
     handler: {
         directory: {
-            path: 'app/assets/fonts/'
+            path: 'build/fonts/'
         }
     }
 });
@@ -31,15 +31,15 @@ server.route({
     method: 'GET',
     path: '/pivotal-ui.js',
     handler: function (request, reply) {
-        reply.file('app/assets/javascripts/pivotal-ui.js');
+        reply.file('build/pivotal-ui.js');
     }
 });
 
 server.route({
     method: 'GET',
-    path: '/main.js',
+    path: '/application.js',
     handler: function (request, reply) {
-        reply.file('app/assets/javascripts/main.js');
+        reply.file('build/application.js');
     }
 });
 
@@ -47,7 +47,15 @@ server.route({
     method: 'GET',
     path: '/pivotal-ui.css',
     handler: function (request, reply) {
-        reply.file('app/assets/stylesheets/pivotal-ui.css');
+        reply.file('build/pivotal-ui.css');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/application.css',
+    handler: function (request, reply) {
+        reply.file('build/application.css');
     }
 });
 

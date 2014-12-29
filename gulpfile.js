@@ -8,14 +8,22 @@ var rename = require("gulp-rename");
 
 
 // Restart the server for changes
-gulp.task('default', function(){
+gulp.task('default', ['assets'], function() {
+  gulp.watch(['app/assets/javascripts/**/*.js', 'app/assets/javascripts/**/*.jsx'], ['react']);
+  gulp.watch(['app/assets/stylesheets/**/*.scss'], ['sass']);
   nodemon({ script: 'server.js', ext: 'html js' });
 });
 
+gulp.task('assets', [
+  'sass',
+  'react',
+  'pui'
+]);
+
 gulp.task('sass', function(){
-  gulp.src('./app/assets/stylesheets/scss/*.scss')
+  return gulp.src('./app/assets/stylesheets/application.scss')
     .pipe(sass())
-    .pipe(gulp.dest('./app/assets/stylesheets/css'));
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('react', function() {
@@ -24,6 +32,13 @@ gulp.task('react', function() {
 
   return b.bundle()
     .pipe(source('./_manifest.js'))
-    .pipe(rename('main.js'))
-    .pipe(gulp.dest('app/assets/javascripts'))
+    .pipe(rename('application.js'))
+    .pipe(gulp.dest('build'))
 });
+
+gulp.task('pui', function() {
+  return gulp.src('./vendor/**/*')
+    .pipe(gulp.dest('build/'))
+});
+
+
