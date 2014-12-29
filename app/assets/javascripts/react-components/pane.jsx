@@ -5,7 +5,7 @@
 
   var React = require('react');
 
-  var Pane = React.createClass({
+  var ProtoPane = React.createClass({
     getInitialState: function() {
       return {};
     },
@@ -40,6 +40,6 @@
     }
   });
 
-  module.exports = Pane;
+  module.exports = ProtoPane;
 
 }());

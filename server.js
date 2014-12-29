@@ -29,9 +29,9 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/pivotal-ui.js',
+    path: '/pivotal-ui-react.js',
     handler: function (request, reply) {
-        reply.file('build/pivotal-ui.js');
+        reply.file('build/pivotal-ui-react.js');
     }
 });
 
