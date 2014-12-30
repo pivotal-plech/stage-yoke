@@ -5,15 +5,29 @@ var server = new Hapi.Server();
 
 server.connection({ port: process.env.PORT || 3000 });
 
+server.views({
+  engines: { jade: require('jade') },
+  path: __dirname + '/app/views',
+  compileOptions: {
+    pretty: true,
+    layoutPath: './app/views/layouts/',
+    layout: false
+  }
+});
+
 server.route({
     method: 'GET',
-    path: '/{params*}',
-    handler: {
-        directory: {
-            path: './build/',
-            listing: true,
-            defaultExtension: 'html'
-        }
+    path: '/',
+    handler: function(request, reply) {
+      reply.view('index');
+    }
+});
+
+server.route({
+    method: 'get',
+    path: '/about',
+    handler: function(request, reply) {
+      reply.view('about/index');
     }
 });
 

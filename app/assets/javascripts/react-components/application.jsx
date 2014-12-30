@@ -5,7 +5,6 @@ React.render(
     <div className="bg-dark-1">
       <ProtoPane></ProtoPane>
     </div>
-    <MarketingH1>Hi</MarketingH1>
   </div>,
   document.getElementById('content')
 );

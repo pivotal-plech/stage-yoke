@@ -10,23 +10,26 @@
   "author": "Spencer Hurst",
   "license": "ISC",
   "dependencies": {
-    "hapi": "~8.0.0",
+    "browserify": "~8.0.1",
     "good": "~5.1.0",
     "good-console": "~4.0.0",
-    "node": "0.0.0",
     "gulp": "~3.8.10",
+    "hapi": "~8.0.0",
+    "jade": "^1.8.2",
+    "lodash": "^2.4.1",
+    "node": "0.0.0",
     "react": "~0.12.2",
-    "browserify": "~8.0.1",
-    "underscore": "~1.7.0",
     "reactify": "~0.17.1",
+    "underscore": "~1.7.0",
     "vinyl-source-stream": "~1.0.0"
   },
   "devDependencies": {
+    "browser-sync": "^1.8.2",
+    "gulp": "^3.8.10",
     "gulp-nodemon": "~1.0.4",
-    "node-sass": "~1.2.3",
-    "gulp-sass": "~1.2.4",
-    "react-tools": "~0.12.2",
     "gulp-rename": "~1.2.0",
-    "gulp-jade": "~0.10.0"
+    "gulp-sass": "~1.2.4",
+    "node-sass": "~1.2.3",
+    "react-tools": "~0.12.2"
   }
 }
