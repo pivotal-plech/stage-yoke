@@ -1,4 +1,4 @@
-var ProtoPane = require('./pane.jsx');
+var ProtoPane = require('./content.jsx');
 
 React.render(
   <div>

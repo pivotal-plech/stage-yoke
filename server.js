@@ -10,7 +10,7 @@ server.route({
     path: '/{params*}',
     handler: {
         directory: {
-            path: 'app/views/',
+            path: './build/',
             listing: true,
             defaultExtension: 'html'
         }

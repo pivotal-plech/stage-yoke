@@ -5,12 +5,13 @@ var reactify = require('reactify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var rename = require("gulp-rename");
-
+var jade = require('gulp-jade');
 
 // Restart the server for changes
 gulp.task('default', ['assets'], function() {
   gulp.watch(['app/assets/javascripts/**/*.js', 'app/assets/javascripts/**/*.jsx'], ['react']);
   gulp.watch(['app/assets/stylesheets/**/*.scss'], ['sass']);
+  gulp.watch(['app/views/**/*.jade'], ['jade']);
   nodemon({ script: 'server.js', ext: 'html js' });
 });
 
@@ -41,4 +42,14 @@ gulp.task('pui', function() {
     .pipe(gulp.dest('build/'))
 });
 
-
+gulp.task('jade', function() {
+  var YOUR_LOCALS = {
+    jade: jade,
+    pretty: true
+  };
+  gulp.src('./app/views/**/*.jade')
+    .pipe(jade({
+      locals: YOUR_LOCALS
+    }))
+    .pipe(gulp.dest('./build/'))
+});
