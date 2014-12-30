@@ -1,8 +1,8 @@
 ---
 applications:
-- name: pui-node
+- name: pui-prototyping
   command: node server.js
   mem: 1G
   instances: 1
-  host: pui-node
+  host: pui-prototyping
   domain: cfapps.io
