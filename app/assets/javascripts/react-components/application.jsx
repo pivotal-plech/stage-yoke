@@ -6,5 +6,6 @@ React.render(
       <ProtoPane></ProtoPane>
     </div>
   </div>,
+
   document.getElementById('content')
 );
