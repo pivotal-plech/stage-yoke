@@ -19,6 +19,7 @@
             <div className='row'>
               <h1 className='mbn em-high'>Explore, download, and update Pivotal software and services</h1>
               <h2 className='mtn type-neutral-6 em-low'>Software designed with the enterprise in mind</h2>
+              <img src={'images/img--logo.png'} />
             </div>
           </div>
 

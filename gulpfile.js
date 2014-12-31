@@ -13,13 +13,15 @@ var nodemon = require('gulp-nodemon');
 gulp.task('default', ['assets', 'browser-sync'], function() {
   gulp.watch(['app/assets/javascripts/**/*.js', 'app/assets/javascripts/**/*.jsx'], ['react']);
   gulp.watch(['app/assets/stylesheets/**/*.scss'], ['sass']);
+  gulp.watch(['app/assets/images/**/*'], ['images']);
 });
 
 
 gulp.task('assets', [
   'sass',
   'react',
-  'pui'
+  'pui',
+  'images'
 ]);
 
 gulp.task('sass', function(){
@@ -43,6 +45,11 @@ gulp.task('react', function() {
 gulp.task('pui', function() {
   return gulp.src('./vendor/**/*')
     .pipe(gulp.dest('build/'))
+});
+
+gulp.task('images', function() {
+  return gulp.src('./app/assets/images/*')
+    .pipe(gulp.dest('build/images/'))
 });
 
 gulp.task('browser-sync', ['nodemon'], function() {

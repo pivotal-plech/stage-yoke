@@ -43,6 +43,16 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/images/{params*}',
+    handler: {
+        directory: {
+            path: 'build/images/'
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/pivotal-ui-react.js',
     handler: function (request, reply) {
         reply.file('build/pivotal-ui-react.js');
