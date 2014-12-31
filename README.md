@@ -1,16 +1,15 @@
-#Pivotal UI on the Node, Hapi, React, Gulp, and Browserify
-##Goals
+#Pivotal UI on the Node
+Pivotal UI Prototyping is a simple prototyping tool built on a Javascript stack.
 
-- Front-end prototyping in pivotal ui on a JS stack
+##Features
+- Front-end prototyping in Pivotal UI on a JS stack
+- Pivotal UI React Built in
+- BrowserSyn
+- Basic Gulp Tasks
+- Dead simple Hapi.js Server
+- React as Partials
+- Layouts in Jade
+- Browserify
 
-##TODO
-- Pull in pivotal-ui-react
-- Figure out how to react
-- Better directory structure
-- Investigate whether we can pull this into Pivotal UI
-- Better gulp tasks that actually watch for changes and recompile
-
-###Contributing
-
-- Please help me, I'm just a wayward and lost designer
+###Contributing/Help
 - Contact: shurst@pivotal.io
