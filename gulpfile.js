@@ -2,6 +2,7 @@ var _ = require('lodash');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var reactify = require('reactify');
+var del = require('del');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var rename = require("gulp-rename");
@@ -14,6 +15,9 @@ gulp.task('default', ['assets', 'browser-sync'], function() {
   gulp.watch(['app/assets/javascripts/**/*.js', 'app/assets/javascripts/**/*.jsx'], ['react']);
   gulp.watch(['app/assets/stylesheets/**/*.scss'], ['sass']);
   gulp.watch(['app/assets/images/**/*'], ['images']);
+});
+
+gulp.task('build', ['clean', 'assets'], function(){
 });
 
 
@@ -45,6 +49,10 @@ gulp.task('react', function() {
 gulp.task('pui', function() {
   return gulp.src('./vendor/**/*')
     .pipe(gulp.dest('build/'))
+});
+
+gulp.task('clean', function(done) {
+  del(['./build/*.css', './build/**/*', './build/*.js'], {force: true}, done);
 });
 
 gulp.task('images', function() {
