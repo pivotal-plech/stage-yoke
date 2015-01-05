@@ -9,6 +9,8 @@ var rename = require("gulp-rename");
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var nodemon = require('gulp-nodemon');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 
 // Restart the server for changes
 gulp.task('default', ['assets', 'browser-sync'], function() {
@@ -17,9 +19,7 @@ gulp.task('default', ['assets', 'browser-sync'], function() {
   gulp.watch(['app/assets/images/**/*'], ['images']);
 });
 
-gulp.task('build', ['clean', 'assets'], function(){
-});
-
+gulp.task('build', ['clean', 'assets'], function(){});
 
 gulp.task('assets', [
   'sass',
@@ -27,6 +27,16 @@ gulp.task('assets', [
   'pui',
   'images'
 ]);
+
+gulp.task('images', function () {
+  return gulp.src('app/assets/images/*')
+    .pipe(imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()]
+    }))
+    .pipe(gulp.dest('build/images/'));
+});
 
 gulp.task('sass', function(){
   return gulp.src('./app/assets/stylesheets/application.scss')
@@ -53,11 +63,6 @@ gulp.task('pui', function() {
 
 gulp.task('clean', function(done) {
   del(['./build/*.css', './build/**/*', './build/*.js'], {force: true}, done);
-});
-
-gulp.task('images', function() {
-  return gulp.src('./app/assets/images/*')
-    .pipe(gulp.dest('build/images/'))
 });
 
 gulp.task('browser-sync', ['nodemon'], function() {
