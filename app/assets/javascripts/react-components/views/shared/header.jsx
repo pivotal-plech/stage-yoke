@@ -15,7 +15,7 @@
             <div className="media-body">
               <Link to="/">
                 <h1 className="type-neutral-11 mvn h4">
-                  <span className="em-alt">Name of your App</span>
+                  <span className="em-alt">Imipolex G</span>
                 <span className="h6 type-neutral-6 mll em-default">v0.1</span>
                 </h1>
               </Link>

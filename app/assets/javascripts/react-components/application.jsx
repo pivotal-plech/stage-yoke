@@ -10,7 +10,6 @@ var RouteHandler = Router.RouteHandler;
 var Home = require('./views/home.jsx');
 var Header = require('./views/shared/header.jsx');
 var About = require('./views/about.jsx');
-var ProtoPane = require('./protoPane.jsx');
 
 var App = React.createClass({
   render: function () {
