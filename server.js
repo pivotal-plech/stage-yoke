@@ -53,6 +53,14 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/react-router.js',
+    handler: function (request, reply) {
+        reply.file('build/react-router.js');
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/pivotal-ui-react.js',
     handler: function (request, reply) {
         reply.file('build/pivotal-ui-react.js');
