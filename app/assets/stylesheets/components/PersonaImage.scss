@@ -1,0 +1,29 @@
+.PersonaQuote {
+  position: relative;
+}
+
+.PersonaImage {
+  height: 200px;
+  width: 200px;
+  background-color: #e3e3e3;
+  border: 5px solid #fff;
+  border-radius: 1000em;
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.Wrap {
+  background: linear-gradient(rgba(26, 32, 47, 0) 10%, rgba(26, 32, 47, 0) 10%, rgba(26, 32, 47, 0.75) 100%), transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

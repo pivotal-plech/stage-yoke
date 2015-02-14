@@ -15,14 +15,12 @@
             <div className="media-body">
               <Link to="/">
                 <h1 className="type-neutral-11 mvn h4">
-                  <span className="em-alt">Imipolex G</span>
-                <span className="h6 type-neutral-6 mll em-default">v0.1</span>
+                  <span className="em-alt">Pivotal Personas</span>
                 </h1>
               </Link>
             </div>
             <div className="media-right type-neutral-11">
-              <Link className="mrxl type-neutral-11" to="/">Home</Link>
-              <Link className="type-neutral-11" to="/about">About</Link>
+              <Link className="type-neutral-11" to="/claudia">Claudia</Link>
             </div>
           </div>
         </div>

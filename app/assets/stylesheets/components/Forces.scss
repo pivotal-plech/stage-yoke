@@ -1,0 +1,24 @@
+.force:last-child {
+  border-left: 1px solid #e3e3e3;
+}
+
+.forces-diagram {
+  position: relative;
+}
+
+.forces {
+  position: absolute;
+  height: 75px;
+  width: 75px;
+  background-color: #94D0C0;
+  border-radius: 1000em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.force {
+  border-bottom: 1px solid #e3e3e3;
+}
+

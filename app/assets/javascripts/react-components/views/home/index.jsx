@@ -10,8 +10,8 @@
         <div className="bg-neutral-11">
           <div className="animated fadeInUp pvxxxl">
             <div className="container">
-              <h1 className="title txt-c em-low mvn">Imipolex G</h1>
-              <p className="h2 txt-c em-low mvn">Prototyping with React and Node</p>
+              <h1 className="title txt-c em-low mvn">Pivotal Persona</h1>
+              <p className="h2 txt-c em-low mvn">Make Personas. Like a boss.</p>
             </div>
           </div>
           <hr className="mvn" />
@@ -23,4 +23,3 @@
   module.exports = Home;
 
 }());
-
