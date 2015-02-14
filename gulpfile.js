@@ -1,8 +1,11 @@
 var _ = require('lodash');
-var gulp = require('gulp');
 var sass = require('gulp-sass');
+var gulp = require('gulp');
+var bower = require('gulp-bower');
+var bourbon = require('node-bourbon').includePaths;
 var reactify = require('reactify');
 var del = require('del');
+var notify = require("gulp-notify");
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var rename = require("gulp-rename");
@@ -12,20 +15,25 @@ var nodemon = require('gulp-nodemon');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 
+var config = {
+  sassPath: './app/assets/stylesheets',
+  bowerDir: './bower_components'
+}
+
 // Restart the server for changes
 gulp.task('default', ['assets', 'browser-sync'], function() {
   gulp.watch(['app/assets/javascripts/**/*.js', 'app/assets/javascripts/**/*.jsx'], ['react']);
-  gulp.watch(['app/assets/stylesheets/**/*.scss'], ['sass']);
+  gulp.watch(['app/assets/stylesheets/**/*.scss'], ['css']);
   gulp.watch(['app/assets/images/**/*'], ['images']);
 });
 
 gulp.task('build', ['clean', 'assets'], function(){});
 
 gulp.task('assets', [
-  'sass',
+  'css',
   'react',
   'pui',
-  'images'
+  'images',
 ]);
 
 gulp.task('images', function () {
@@ -38,11 +46,18 @@ gulp.task('images', function () {
     .pipe(gulp.dest('build/images/'));
 });
 
-gulp.task('sass', function(){
-  return gulp.src('./app/assets/stylesheets/application.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('build'))
-    .pipe(reload({stream:true}));
+gulp.task('icons', function() { 
+  return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
+    .pipe(gulp.dest('./public/fonts')); 
+});
+
+gulp.task('css', function() { 
+  return gulp.src(config.sassPath + '/application.scss')
+    .pipe(sass({
+      style: 'expanded',
+      includePaths: ['./app/assets/stylesheets'].concat(bourbon),
+    }))
+    .pipe(gulp.dest('./build'));
 });
 
 gulp.task('react', function() {

@@ -24,14 +24,6 @@ server.route({
 });
 
 server.route({
-    method: 'get',
-    path: '/about',
-    handler: function(request, reply) {
-      reply.view('about/index');
-    }
-});
-
-server.route({
     method: 'GET',
     path: '/fonts/{params*}',
     handler: {
@@ -56,14 +48,6 @@ server.route({
     path: '/react-router.js',
     handler: function (request, reply) {
         reply.file('build/react-router.js');
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/pivotal-ui-react.js',
-    handler: function (request, reply) {
-        reply.file('build/pivotal-ui-react.js');
     }
 });
 
