@@ -8,13 +8,13 @@ var Router = window.ReactRouter,
     Link = Router.Link,
     RouteHandler = Router.RouteHandler,
     Application = require('./views/layouts/app.jsx'),
-    Home = require('./views/home/index.jsx'),
-    Persona = require('./views/persona/index.jsx');
+    Home = require('./views/Home/Home.jsx'),
+    Character = require('./views/Character/Character.jsx');
 
 
 module.exports = (
   <Route name="app" path="/" handler={Application}>
     <DefaultRoute handler={Home}/>
-    <Route name="/persona" handler={Persona}/>
+    <Route name="/character" handler={Character}/>
   </Route>
 );

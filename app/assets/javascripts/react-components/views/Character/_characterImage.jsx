@@ -2,9 +2,9 @@
 
 (function () {
   'use strict';
-  var _personaTitle = require('./_personaTitle.jsx');
+  var _characterTitle = require('./_characterTitle.jsx');
 
-  var _personaImage = React.createClass({
+  var _characterImage = React.createClass({
 
     render: function() {
       return (
@@ -15,7 +15,7 @@
     }
   });
 
-  module.exports = _personaImage;
+  module.exports = _characterImage;
 
 }());
 

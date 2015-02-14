@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  var _personaTitle = React.createClass({
+  var _characterTitle = React.createClass({
 
     render: function() {
       return (
@@ -16,6 +16,6 @@
     }
   });
 
-  module.exports = _personaTitle;
+  module.exports = _characterTitle;
 
 }());
