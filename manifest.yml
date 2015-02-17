@@ -1,8 +1,8 @@
 ---
 applications:
-- name: pui-prototyping
+- name: stage-yoke
   command: node server.js
   mem: 1G
   instances: 1
-  host: pui-prototyping
+  host: stage-yoke
   domain: cfapps.io
