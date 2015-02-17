@@ -17,9 +17,7 @@
 
     render: function() {
       return (
-      <div>
         <RouteHandler/>
-      </div>
       );
     }
   });

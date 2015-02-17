@@ -13,7 +13,7 @@
 
     render: function() {
       return (
-        <div>
+        <div className="character">
           <_characterTitle></_characterTitle>
 
           <_characterQuote>
