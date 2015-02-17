@@ -1,7 +1,6 @@
 var _ = require('lodash');
 var sass = require('gulp-sass');
 var gulp = require('gulp');
-var bower = require('gulp-bower');
 var bourbon = require('node-bourbon').includePaths;
 var reactify = require('reactify');
 var del = require('del');
@@ -17,7 +16,6 @@ var pngquant = require('imagemin-pngquant');
 
 var config = {
   sassPath: './app/assets/stylesheets',
-  bowerDir: './bower_components'
 }
 
 // Restart the server for changes
@@ -44,11 +42,6 @@ gulp.task('images', function () {
         use: [pngquant()]
     }))
     .pipe(gulp.dest('build/images/'));
-});
-
-gulp.task('icons', function() { 
-  return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
-    .pipe(gulp.dest('./public/fonts')); 
 });
 
 gulp.task('css', function() { 
