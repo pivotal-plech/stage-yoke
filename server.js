@@ -7,7 +7,7 @@ var Character = require('./app/api/1/models/character');
 var server = new Hapi.Server();
 
 server.connection({ port: process.env.PORT || 3000 });
-mongoose.connect('mongodb://localhost/stageyoke');
+mongoose.connect(process.env.DBURI || 'mongodb://localhost/stageyoke');
 
 server.views({
   engines: { jade: require('jade') },
@@ -90,6 +90,23 @@ server.route({
               return reply('The page was not found').code(404);
             }
         });
+    }
+});
+
+server.route({
+    method: 'POST',
+    path: '/api/1/character',
+    handler: function (request, reply) {
+      var character =  new Character({
+        slug: request.payload.slug,
+        archetype: request.payload.archetype
+      });
+      character.save(function (err) {
+        if (err) {
+          return reply("Couldn't create.").code(421);
+        }
+        reply().code(200);
+      });
     }
 });
 

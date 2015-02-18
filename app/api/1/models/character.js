@@ -1,8 +1,12 @@
 var mongoose = require('mongoose');
+var uniqueValidator = require('mongoose-unique-validator');
 
 var characterSchema = new mongoose.Schema({
-  archetype: {type: String}
+  archetype: {type: String, required: true},
+  slug: {type: String, required: true, unique: true},
 });
+
+characterSchema.plugin(uniqueValidator);
 
 var Character = mongoose.model('Character', characterSchema);
 
