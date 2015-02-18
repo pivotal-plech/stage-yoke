@@ -1,9 +1,13 @@
 var Hapi = require('hapi');
 var Good = require('good');
+var mongoose = require('mongoose');
+
+var Character = require('./app/api/1/models/character');
 
 var server = new Hapi.Server();
 
 server.connection({ port: process.env.PORT || 3000 });
+mongoose.connect('mongodb://localhost/stageyoke');
 
 server.views({
   engines: { jade: require('jade') },
@@ -72,6 +76,20 @@ server.route({
     path: '/application.css',
     handler: function (request, reply) {
         reply.file('build/application.css');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/api/1/character/{slug}',
+    handler: function (request, reply) {
+        Character.findOne({slug: request.params.slug}, function(err, character) {
+            if (character) {
+              reply({archetype: character.archetype});
+            } else {
+              return reply('The page was not found').code(404);
+            }
+        });
     }
 });
 

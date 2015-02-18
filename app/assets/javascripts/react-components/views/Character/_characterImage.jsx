@@ -2,7 +2,6 @@
 
 (function () {
   'use strict';
-  var _characterTitle = require('./_characterTitle.jsx');
 
   var _characterImage = React.createClass({
 

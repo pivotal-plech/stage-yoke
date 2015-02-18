@@ -16,7 +16,7 @@ var Router = window.ReactRouter,
 module.exports = (
   <Route name="app" path="/" handler={Application}>
     <DefaultRoute handler={Home}/>
-    <Route name="/character" handler={Character}/>
+    <Route name="character" path="/characters/:slug" handler={Character}/>
     <Route name="/character-collection" handler={CharacterCollection}/>
   </Route>
 );

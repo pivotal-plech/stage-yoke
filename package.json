@@ -17,12 +17,14 @@
     "hapi": "~8.0.0",
     "jade": "^1.8.2",
     "lodash": "^2.4.1",
+    "mongoose": "^3.8.23",
     "node": "0.0.0",
-    "underscore": "~1.7.0",
-    "vinyl-source-stream": "~1.0.0",
-    "reactify": "~0.17.1",
     "react": "~0.12.2",
-    "react-router": "~0.11.6"
+    "react-router": "~0.11.6",
+    "reactify": "~0.17.1",
+    "superagent": "^0.21.0",
+    "underscore": "~1.7.0",
+    "vinyl-source-stream": "~1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^1.8.2",
