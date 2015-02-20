@@ -8,7 +8,7 @@
     render: function() {
       return (
         <div className="PersonaImage">
-          <img src="/images/img--persona.png" />
+          <img src={this.props.avatar} />
         </div>
       );
     }

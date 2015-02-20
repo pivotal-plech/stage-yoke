@@ -13,10 +13,20 @@
     _onSubmit: function(event) {
       var slug = this.refs.slug.getDOMNode().value,
           archetype = this.refs.archetype.getDOMNode().value,
+          name = this.refs.name.getDOMNode().value,
+          quote = this.refs.quote.getDOMNode().value,
+          title = this.refs.title.getDOMNode().value,
+          banner = this.refs.banner.getDOMNode().value,
+          avatar = this.refs.avatar.getDOMNode().value,
           self = this;
       request.post('/api/1/character')
         .send({
           archetype: archetype,
+          name: name,
+          quote: quote,
+          title: title,
+          banner: banner,
+          avatar: avatar,
           slug: slug
         })
         .end(function(res) {
@@ -33,7 +43,27 @@
                 <form role="form" onSubmit={this._onSubmit}>
                   <div className="form-group">
                     <label>Character Archetype</label>
-                    <input ref="archetype" type="text" className="form-control" placeholder="Enter Persona Archetype" />
+                    <input ref="archetype" type="text" className="form-control" placeholder="Character Archetype" />
+                  </div>
+                  <div className="form-group">
+                    <label>Character Banner</label>
+                    <input ref="banner" type="text" className="form-control" placeholder="Character Banner URL" />
+                  </div>
+                  <div className="form-group">
+                    <label>Character Avatar</label>
+                    <input ref="avatar" type="text" className="form-control" placeholder="Character Avatar URL" />
+                  </div>
+                  <div className="form-group">
+                    <label>Character Name</label>
+                    <input ref="name" type="text" className="form-control" placeholder="Character Name" />
+                  </div>
+                  <div className="form-group">
+                    <label>Character Title</label>
+                    <input ref="title" type="text" className="form-control" placeholder="Character Title" />
+                  </div>
+                  <div className="form-group">
+                    <label>Character Quote</label>
+                    <textarea ref="quote" className="form-control" rows="3"></textarea>
                   </div>
                   <div className="form-group">
                     <label>Slug</label>

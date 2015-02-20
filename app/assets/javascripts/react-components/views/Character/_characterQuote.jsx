@@ -12,8 +12,11 @@
         height: "400px"
       }
 
+      var banner = this.props.banner;
+
       var characterImg = {
         background: "transparent no-repeat url('/images/img--characterBackground.jpg') top center",
+        backgroundImage: banner,
         backgroundSize: "cover"
       }
 
@@ -24,7 +27,7 @@
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-18 col-md-offset-3 animated fadeInUp">
-                  <h1 className="txt-c em-low mvxxxl type-neutral-11">"Well, I gotta go. I think my judge is burning, fudge...My fudge is burning, judge...I mean, my mother wants me. I got to crochet a cake. Uh, goodbye!"</h1>
+                  <h1 className="txt-c em-low mvxxxl type-neutral-11">{this.props.quote}</h1>
                 </div>
               </div>
             </div>

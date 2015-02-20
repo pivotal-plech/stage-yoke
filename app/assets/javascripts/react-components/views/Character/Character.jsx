@@ -25,7 +25,12 @@
       request.get('/api/1/character/' + slug, function(err, res) {
         if (res.status === 200) {
           self.setState({
-            archetype: res.body.archetype
+            archetype: res.body.archetype,
+            quote: res.body.quote,
+            title: res.body.title,
+            banner: res.body.banner,
+            avatar: res.body.avatar,
+            name: res.body.name
           });
         } else {
           self.setState({
@@ -50,11 +55,11 @@
         <div className="character">
           <_characterArchetype archetype={this.state.archetype}></_characterArchetype>
 
-          <_characterQuote>
-            <_characterImage></_characterImage>
+          <_characterQuote quote={this.state.quote} banner={this.state.banner}>
+            <_characterImage avatar={this.state.avatar}></_characterImage>
           </_characterQuote>
 
-          <_characterName></_characterName>
+          <_characterName name={this.state.name} title={this.state.title}></_characterName>
 
           <hr className="mvn" />
           <Forces />

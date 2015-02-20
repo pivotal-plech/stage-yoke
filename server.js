@@ -85,7 +85,14 @@ server.route({
     handler: function (request, reply) {
         Character.findOne({slug: request.params.slug}, function(err, character) {
             if (character) {
-              reply({archetype: character.archetype});
+              reply({
+                archetype: character.archetype,
+                name: character.name,
+                title: character.title,
+                banner: character.banner,
+                avatar: character.avatar,
+                quote: character.quote
+              });
             } else {
               return reply('The page was not found').code(404);
             }
@@ -99,7 +106,12 @@ server.route({
     handler: function (request, reply) {
       var character =  new Character({
         slug: request.payload.slug,
-        archetype: request.payload.archetype
+        archetype: request.payload.archetype,
+        name: request.payload.name,
+        title: request.payload.title,
+        banner: request.payload.banner,
+        avatar: request.payload.avatar,
+        quote: request.payload.quote
       });
       character.save(function (err) {
         if (err) {
