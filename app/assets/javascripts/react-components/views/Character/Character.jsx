@@ -14,7 +14,13 @@
   var Character = React.createClass({
     getInitialState: function() {
       return {
-        archetype: 'Loading...'
+        archetype: 'Loading...',
+        forces: {
+          pushes: [],
+          pulls: [],
+          inertias: [],
+          anxieties: []
+        }
       };
     },
 
@@ -30,7 +36,9 @@
             title: res.body.title,
             banner: res.body.banner,
             avatar: res.body.avatar,
-            name: res.body.name
+            name: res.body.name,
+            forces: res.body.forces,
+            slug: res.body.slug
           });
         } else {
           self.setState({
@@ -62,7 +70,7 @@
           <_characterName name={this.state.name} title={this.state.title}></_characterName>
 
           <hr className="mvn" />
-          <Forces />
+          <Forces forces={this.state.forces} />
           <Features />
         </div>
       );

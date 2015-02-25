@@ -6,7 +6,6 @@
 
   var Forces = React.createClass({
 
-
     render: function() {
 
       var imgWidth = {
@@ -23,13 +22,13 @@
 
           <div className="container-fluid">
             <div className="row">
-              <_force forceTitle="Push"></_force>
-              <_force forceTitle="Pull"></_force>
+              <_force forceTitle="Push" type="pushes" forces={this.props.forces.pushes}></_force>
+              <_force forceTitle="Pull" type="pulls" forces={this.props.forces.pulls}></_force>
             </div>
 
             <div className="row">
-              <_force forceTitle="Allegiance"></_force>
-              <_force forceTitle="Anxiety"></_force>
+              <_force forceTitle="Inertias" type="inertias" forces={this.props.forces.inertias}></_force>
+              <_force forceTitle="Anxiety" type="anxieties" forces={this.props.forces.anxieties}></_force>
             </div>
           </div>
         </div>

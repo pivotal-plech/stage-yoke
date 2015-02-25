@@ -93,7 +93,8 @@ server.route({
                 title: character.title,
                 banner: character.banner,
                 avatar: character.avatar,
-                quote: character.quote
+                quote: character.quote,
+                forces: character.forces
               });
             } else {
               return reply('The page was not found').code(404);
@@ -123,6 +124,27 @@ server.route({
           return reply(Boom.badData(errMessage));
         }
         reply().code(200);
+      });
+    }
+});
+
+
+server.route({
+    method: 'POST',
+    path: '/api/1/characters/{slug}/forces',
+    handler: function (request, reply) {
+      Character.findOne({slug: request.params.slug}, function(err, character) {
+        if (err) {
+          return reply(Boom.notFound('Could notfind character.'));
+        }
+        var type = request.payload.type;
+        character.forces[type].push(request.payload.force);
+        character.save(function(err){
+          if(err) {
+            return reply(Boom.badData('Bad data!'));
+          }
+          reply().code(200);
+        });
       });
     }
 });

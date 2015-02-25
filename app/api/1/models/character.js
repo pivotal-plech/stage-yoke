@@ -9,6 +9,12 @@ var characterSchema = new mongoose.Schema({
   banner: {type: String, required: "Need a banner URL"},
   avatar: {type: String, required: "Need an avatar URl"},
   slug: {type: String, required: "Slug needs to be present.", unique: "Slug needs to be unique."},
+  forces: {
+    pushes: {type: [String]},
+    pulls: {type: [String]},
+    anxieties: {type: [String]},
+    inertias: {type: [String]}
+  }
 });
 
 characterSchema.plugin(uniqueValidator);

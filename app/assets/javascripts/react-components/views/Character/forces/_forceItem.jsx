@@ -6,11 +6,14 @@
   var _forceItem = React.createClass({
 
     render: function() {
+      var forceStyle = {
+        height: '75px'
+      }
 
       return (
         <div className="col-md-12">
-          <div className="panel panel-basic bg-neutral-11 pal">
-            <p className="type-xs mbn">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+          <div className="panel panel-basic bg-neutral-11 pal" style={forceStyle}>
+            <p className="type-xs mbn">{this.props.force}</p>
           </div>
         </div>
       );
