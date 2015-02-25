@@ -8,6 +8,12 @@
 
   var NewCharacter = React.createClass({
 
+    getInitialState: function(){
+      return {
+        error: null
+      };
+    },
+
     mixins: [ Router.Navigation ],
 
     _onSubmit: function(event) {
@@ -30,13 +36,28 @@
           slug: slug
         })
         .end(function(res) {
-          self.transitionTo('/characters/' + slug);
+          if(res.status === 422) {
+            self.setState({error: res.body.message});
+          } else {
+            self.transitionTo('/characters/' + slug);
+          }
         });
     },
 
     render: function() {
       return (
         <div className="paxxxl bg-neutral-11 panel panel-shadow-3">
+
+          {this.state.error && (<div className="alert alert-error mtn mbxl">
+            <div className="media">
+              <div className="media-left">
+                <i className="fa fa-exclamation-triangle"></i>
+              </div>
+              <div className="media-body em-high" id="error">
+                {this.state.error}
+              </div>
+            </div>
+          </div>)}
           <div className="newCharacter">
             <div className="row">
               <div className="col-md-24">

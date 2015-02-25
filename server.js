@@ -1,6 +1,8 @@
 var Hapi = require('hapi');
 var Good = require('good');
+var Boom = require('boom');
 var mongoose = require('mongoose');
+var _ = require('lodash');
 
 var Character = require('./app/api/1/models/character');
 
@@ -115,7 +117,10 @@ server.route({
       });
       character.save(function (err) {
         if (err) {
-          return reply("Couldn't create.").code(421);
+          var errMessage = _.map(err.errors, function(props) {
+            return props.message;
+          }).join('. ') + '.';
+          return reply(Boom.badData(errMessage));
         }
         reply().code(200);
       });
