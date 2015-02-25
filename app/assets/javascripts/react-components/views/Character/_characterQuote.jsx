@@ -12,11 +12,11 @@
         height: "400px"
       }
 
-      var banner = this.props.banner;
+      var imgUrl = this.props.banner;
 
       var characterImg = {
-        background: "transparent no-repeat url('/images/img--characterBackground.jpg') top center",
-        backgroundImage: banner,
+        background: "transparent no-repeat bottom center",
+        backgroundImage: 'url(' + imgUrl + ')',
         backgroundSize: "cover"
       }
 
