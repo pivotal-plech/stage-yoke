@@ -1,7 +1,7 @@
 {
-  "name": "pui-prototyping",
-  "version": "0.0.0",
-  "description": "Quick spike on prototyping with hapi.js",
+  "name": "stageYoke",
+  "version": "0.0.1",
+  "description": "Collaborative Character Editor for Designers and Product People",
   "main": "server.js",
   "engines": {
     "node": "v0.10.24",
